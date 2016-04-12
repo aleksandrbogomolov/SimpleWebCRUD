@@ -3,5 +3,10 @@ CREATE TABLE users (
   name VARCHAR(25) NOT NULL,
   age INT(3) NOT NULL,
   admin BOOLEAN NOT NULL DEFAULT FALSE,
-  createDate DATE NOT NULL
-)
+  createDate TIMESTAMP(4)
+);
+
+INSERT INTO users (name, age, admin) VALUES (
+    'alex', 21, FALSE
+);
+

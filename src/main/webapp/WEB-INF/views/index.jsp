@@ -16,12 +16,21 @@
         <th>ADMIN</th>
         <th>DATE</th>
     </tr>
-    <c:forEach var="user" items="${users}">
+    <c:forEach items="${users}" var="user">
         <tr>
             <td>${user.id}</td>
             <td>${user.name}</td>
             <td>${user.age}</td>
-            <td>${user.isAdmin}</td>
+            <td>
+                <c:choose>
+                    <c:when test="${user.admin == true}">
+                        <input type="checkbox" name="admin" checked/>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="checkbox" name="admin"/>
+                    </c:otherwise>
+                </c:choose>
+            </td>
             <td>${user.createDate}</td>
         </tr>
     </c:forEach>
