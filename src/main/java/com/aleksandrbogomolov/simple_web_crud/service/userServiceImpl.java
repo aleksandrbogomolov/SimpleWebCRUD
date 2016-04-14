@@ -2,6 +2,8 @@ package com.aleksandrbogomolov.simple_web_crud.service;
 
 import com.aleksandrbogomolov.simple_web_crud.dao.UserDao;
 import com.aleksandrbogomolov.simple_web_crud.model.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
