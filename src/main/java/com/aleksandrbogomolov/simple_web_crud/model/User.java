@@ -20,7 +20,7 @@ public class User {
     @Column(name = "ADMIN", nullable = false)
     private boolean isAdmin;
 
-    @Column(name = "createDate", nullable = false)
+    @Column(name = "createDate")
     private Date createDate;
 
     public User() {

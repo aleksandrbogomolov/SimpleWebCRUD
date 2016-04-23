@@ -23,4 +23,20 @@ public class AppController {
         modelMap.addAttribute("users", users);
         return "index";
     }
+
+    @RequestMapping(value = {"/newUser"}, method = RequestMethod.GET)
+    public String addUser(ModelMap modelMap) {
+
+        User user = new User();
+        modelMap.addAttribute("User", user);
+        return "newUser";
+    }
+
+    @RequestMapping(value = {"/newUser"}, method = RequestMethod.POST)
+    public String saveUser(User user, ModelMap modelMap) {
+
+        userService.saveUser(user);
+        modelMap.addAttribute("User", user);
+        return "index";
+    }
 }
