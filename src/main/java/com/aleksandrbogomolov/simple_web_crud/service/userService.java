@@ -16,9 +16,5 @@ public interface UserService {
 
     void setAdmin(User user);
 
-    List<User> findAllUsers();
-
-    List<User> sortUsersById();
-
-    List<User> sortUsersByName();
+    List findAllUsers();
 }

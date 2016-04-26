@@ -12,9 +12,5 @@ public interface UserDao {
 
     void deleteUser(User user);
 
-    List<User> findAllUsers();
-
-    List<User> sortUsersById();
-
-    List<User> sortUsersByName();
+    List findAllUsers();
 }

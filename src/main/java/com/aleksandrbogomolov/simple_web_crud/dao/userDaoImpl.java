@@ -4,7 +4,6 @@ import com.aleksandrbogomolov.simple_web_crud.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -36,15 +35,7 @@ public class UserDaoImpl implements UserDao {
         getSession().delete(user);
     }
 
-    public List<User> findAllUsers() {
+    public List findAllUsers() {
         return createCriteria().list();
-    }
-
-    public List<User> sortUsersById() {
-        return createCriteria().addOrder(Order.desc("id")).list();
-    }
-
-    public List<User> sortUsersByName() {
-        return createCriteria().addOrder(Order.desc("name")).list();
     }
 }
