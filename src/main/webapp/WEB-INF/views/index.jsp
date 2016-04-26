@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -10,41 +11,19 @@
 <div class="container">
     <h2 class="modal-title text-center">Users list</h2>
     <a href="newUser">Add new User</a>
-    <a href="sortById">Sort by Id</a>
-    <a href="sortByName">Sort by Name</a>
     <form action="findUser">
         <input type="search" name="id" placeholder="Id">
         <input type="submit" value="Find"/>
     </form>
-    <table class="table">
-        <tr>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>AGE</th>
-            <th>ADMIN</th>
-            <th>DATE</th>
-        </tr>
-        <c:forEach items="${users}" var="user">
-            <tr>
-                <td>${user.id}</td>
-                <td>${user.name}</td>
-                <td>${user.age}</td>
-                <td>
-                    <c:choose>
-                        <c:when test="${user.admin == true}">
-                            <input type="checkbox" name="admin" disabled checked/>
-                        </c:when>
-                        <c:otherwise>
-                            <input type="checkbox" name="admin" disabled/>
-                        </c:otherwise>
-                    </c:choose>
-                </td>
-                <td>${user.createDate}</td>
-                <td><a href="<c:url value="/newUser-${user.id}"/>">Edit</a></td>
-                <td><a href="<c:url value="/deleteUser-${user.id}"/>">Delete</a></td>
-            </tr>
-        </c:forEach>
-    </table>
+    <display:table name="users" pagesize="5" class="table" requestURI="" sort="list">
+        <display:column property="id" title="ID" sortable="true" headerClass="sortable"/>
+        <display:column property="name" title="Name" sortable="true" headerClass="sortable"/>
+        <display:column property="age" title="Age" sortable="true" headerClass="sortable"/>
+        <display:column property="admin" title="Admin" headerClass="sortable"/>
+        <display:column property="createDate" title="Create Date" headerClass="sortable"/>
+        <display:column title="Service"><a href="<c:url value="/editUser-${id}"/>">Edit User</a><a href="deleteUser">Delete
+            User</a></display:column>
+    </display:table>
 </div>
 </body>
 </html>

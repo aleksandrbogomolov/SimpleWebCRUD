@@ -65,22 +65,6 @@ public class AppController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = {"/sortById"}, method = RequestMethod.GET)
-    public String sortById(ModelMap modelMap) {
-
-        List users = userService.sortUsersById();
-        modelMap.addAttribute("users", users);
-        return "index";
-    }
-
-    @RequestMapping(value = {"/sortByName"}, method = RequestMethod.GET)
-    public String sortByName(ModelMap modelMap) {
-
-        List users = userService.sortUsersByName();
-        modelMap.addAttribute("users", users);
-        return "index";
-    }
-
     @RequestMapping(value = {"/findUser"}, method = RequestMethod.GET)
     public String findUser(String id, ModelMap modelMap) {
 

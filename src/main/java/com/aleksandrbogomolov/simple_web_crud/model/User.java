@@ -21,7 +21,6 @@ public class User {
     private boolean isAdmin;
 
     @Temporal(TemporalType.TIMESTAMP)
-//    @Generated(GenerationTime.ALWAYS)
     @Column(name = "createDate", insertable = false, updatable = false)
     private Date createDate;
 
