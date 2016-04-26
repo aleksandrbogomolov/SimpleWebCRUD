@@ -10,6 +10,12 @@
 <div class="container">
     <h2 class="modal-title text-center">Users list</h2>
     <a href="newUser">Add new User</a>
+    <a href="sortById">Sort by Id</a>
+    <a href="sortByName">Sort by Name</a>
+    <form action="findUser">
+        <input type="search" name="id" placeholder="Id">
+        <input type="submit" value="Find"/>
+    </form>
     <table class="table">
         <tr>
             <th>ID</th>
@@ -26,14 +32,16 @@
                 <td>
                     <c:choose>
                         <c:when test="${user.admin == true}">
-                            <input type="checkbox" name="admin" checked/>
+                            <input type="checkbox" name="admin" disabled checked/>
                         </c:when>
                         <c:otherwise>
-                            <input type="checkbox" name="admin"/>
+                            <input type="checkbox" name="admin" disabled/>
                         </c:otherwise>
                     </c:choose>
                 </td>
                 <td>${user.createDate}</td>
+                <td><a href="<c:url value="/newUser-${user.id}"/>">Edit</a></td>
+                <td><a href="<c:url value="/deleteUser-${user.id}"/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

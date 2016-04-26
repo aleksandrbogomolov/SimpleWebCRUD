@@ -20,7 +20,9 @@ public class User {
     @Column(name = "ADMIN", nullable = false)
     private boolean isAdmin;
 
-    @Column(name = "createDate")
+    @Temporal(TemporalType.TIMESTAMP)
+//    @Generated(GenerationTime.ALWAYS)
+    @Column(name = "createDate", insertable = false, updatable = false)
     private Date createDate;
 
     public User() {
