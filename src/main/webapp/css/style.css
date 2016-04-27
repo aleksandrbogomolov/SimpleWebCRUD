@@ -1,0 +1,11 @@
+body {
+    background-image: url("/img/LightGreyBackground.jpg");
+}
+
+.form-inline {
+    padding-top: 20px;
+}
+
+a {
+    padding-left: 10px;
+}
