@@ -20,21 +20,21 @@ public class AppController {
     UserService userService;
 
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
-    public String listUsers(ModelMap modelMap) {
+    public String listUsers(User user, ModelMap modelMap) {
         List users = userService.findAllUsers();
         modelMap.addAttribute("users", users);
+        modelMap.addAttribute("User", user);
         return "index";
     }
 
     @RequestMapping(value = {"/newUser"}, method = RequestMethod.GET)
     public String addUser(ModelMap modelMap) {
 
-        User user = new User();
-        modelMap.addAttribute("User", user);
-        return "newUser";
+        modelMap.addAttribute("User", new User());
+        return "index";
     }
 
-    @RequestMapping(value = {"/newUser"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/"}, method = RequestMethod.POST)
     public String saveUser(User user, ModelMap modelMap) {
 
         userService.saveUser(user);
@@ -42,15 +42,15 @@ public class AppController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = {"/newUser-{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/editUser-{id}"}, method = RequestMethod.GET)
     public String editUser(@PathVariable long id, ModelMap modelMap) {
 
         User user = userService.findUserById(id);
         modelMap.addAttribute("User", user);
-        return "newUser";
+        return "index";
     }
 
-    @RequestMapping(value = {"/newUser-{id}"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/editUser-{id}"}, method = RequestMethod.POST)
     public String updateUser(User user, ModelMap modelMap) {
 
         userService.updateUser(user);
@@ -70,7 +70,7 @@ public class AppController {
 
         List<User> users = new ArrayList<>();
         users.add(userService.findUserById(Long.parseLong(id)));
-        modelMap.addAttribute("users", users);
+        modelMap.addAttribute("users", users).addAttribute("User", new User());
         return "index";
     }
 }

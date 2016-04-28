@@ -3,9 +3,18 @@ body {
 }
 
 .form-inline {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 a {
     padding-left: 10px;
+}
+
+.table {
+    background-color: white;
+    /*text-align: center;*/
+}
+
+.collapse1 {
+    display: none;
 }
