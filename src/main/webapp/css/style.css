@@ -4,6 +4,7 @@ body {
 
 .form-inline {
     padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 a {
@@ -12,9 +13,8 @@ a {
 
 .table {
     background-color: white;
-    /*text-align: center;*/
 }
 
-.collapse1 {
-    display: none;
+.btn {
+    border: none;
 }

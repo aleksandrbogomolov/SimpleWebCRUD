@@ -1,15 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>List of User</title>
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/style.css"/>
-    <script src="../../js/jquery.min.js"></script>
-    <%--<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>--%>
-    <script src="../../js/app.js"></script>
+    <script type="text/javascript" src="../../js/app.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -19,13 +18,13 @@
             <input type="search" name="id" placeholder="ID" class="form-control">
         </div>
         <input type="submit" value="Find" class="btn btn-default"/>
-        <button class="btn btn-default" type="button" id="coll">
+        <button class="btn btn-default" type="button" id="coll" onclick="removeClass()">
             Add new User
         </button>
         <a href="/" class="btn btn-default" role="button" id="showAll">Show All</a>
     </form>
 
-    <div class="collapse1" id="collapseForm">
+    <div class="collapse" id="collapseForm">
         <div class="well">
             <form:form method="POST" modelAttribute="User" cssClass="form-inline">
                 <form:input path="id" id="id" type="hidden"/>
@@ -54,7 +53,7 @@
         <display:column property="admin" title="Admin" headerClass="sortable"/>
         <display:column property="createDate" title="Create Date" headerClass="sortable"/>
         <display:column title="Service">
-            <a href="/editUser-${row.id}" type="button" class="btn btn-info" id="edit">Edit</a>
+            <a href="/editUser-${row.id}?hello" type="button" class="btn btn-info">Edit</a>
             <a href="/deleteUser-${row.id}" class="btn btn-danger">Delete</a></display:column>
         <display:setProperty name="paging.banner.placement" value="bottom"/>
     </display:table>

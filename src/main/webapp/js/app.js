@@ -1,11 +1,16 @@
-$(document).ready(function () {
+'use strict';
 
-    $('#coll').click(function () {
-        $('#collapseForm').toggle();
-    });
+function removeClass() {
+    var el = document.getElementById('collapseForm');
+    el.classList.remove('collapse');
+}
 
-    function show() {
-        alert("kyky")
-        $('collapse1').css('display', "block");
+function checkParam(per) {
+    var param = location.search.substring(1).split('?');
+    if (param == per) {
+        removeClass();
     }
-});
+}
+
+checkParam('hello');
+

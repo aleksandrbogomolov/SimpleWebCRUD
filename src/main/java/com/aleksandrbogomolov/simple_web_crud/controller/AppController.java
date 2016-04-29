@@ -69,7 +69,11 @@ public class AppController {
     public String findUser(String id, ModelMap modelMap) {
 
         List<User> users = new ArrayList<>();
-        users.add(userService.findUserById(Long.parseLong(id)));
+        if (id.isEmpty()) {
+            return "redirect:/";
+        } else {
+            users.add(userService.findUserById(Long.parseLong(id)));
+        }
         modelMap.addAttribute("users", users).addAttribute("User", new User());
         return "index";
     }
