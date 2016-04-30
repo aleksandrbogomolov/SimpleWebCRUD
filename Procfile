@@ -1,1 +1,1 @@
-web: sh target/SimpleWebCRUD
+web: sh target/classes
