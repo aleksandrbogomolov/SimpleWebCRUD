@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" %>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
 
     <div class="collapse" id="collapseForm">
         <div class="well">
-            <form:form method="POST" modelAttribute="User" cssClass="form-inline">
+            <form:form method="POST" modelAttribute="User" cssClass="form-inline" acceptCharset="utf8">
                 <form:input path="id" id="id" type="hidden"/>
                 <div class="form-group">
                     <label for="name"></label>

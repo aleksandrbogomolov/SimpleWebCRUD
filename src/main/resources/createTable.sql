@@ -7,6 +7,6 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (name, age, admin) VALUES (
-    'alex', 21, FALSE
+    'Алекс', 21, FALSE
 );
 
